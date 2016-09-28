@@ -1,11 +1,20 @@
 body {
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+body {
   font-family: Roboto, Arial, sans-serif;
   background: #ECEFF1;
   color: rgba(0,0,0,0.87);
 }
 
-a {
+a, button {
   color: rgb(3,155,229);
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
 }
 
 #message {
@@ -36,7 +45,7 @@ a {
   text-align: center;
 }
 
-#message li a {
+#message li a, #message li button {
   display: inline-block;
   padding: 20px 80px;
   text-transform: uppercase;
@@ -49,8 +58,8 @@ a {
   font-size: 2em;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 }
-#message li a:active {
-  background: rgb(23,175,249);
+#message li a:active, #message li button:active {
+  background: rgb(43,195,255);
 }
 
 .bolder {

@@ -28,17 +28,22 @@ var app = {
         this.updateText();
       }.bind(this));
     },
-    touched : false,
-    touch: function() {
-      this.clicked();
-      this.touched = true;
+
+    sendClick: function() {
+      this.socket.emit('c');
+    },
+
+    _touchedLast: 0,
+    touched: function(el) {
+      this.sendClick();
+      this._touchedLast = Date.now();
       return false;
     },
-    clicked: function() {
-      if(!this.touched) {
-        this.socket.emit('c');
+    clicked: function(el) {
+      if((Date.now() - this._touchedLast) < 500) {
+        return false;
       }
-      this.touched = false;
+      this.sendClick();
       return false;
     },
 
@@ -85,3 +90,7 @@ var countCalc = {
     }
   }
 };
+function debug(msg) {
+  var el = document.getElementById('debug_log');
+  el.innerHTML = el.innerHTML + '\n' + msg;
+}

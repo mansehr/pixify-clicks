@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="nu.pixify.clicks" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="nu.pixify.clicks" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Pixify-clicks</name>
     <description>The simplest collaboration app in the world.</description>
     <author email="pixify@sehr.se" href="http://pixify.nu">Pixify Team</author>
