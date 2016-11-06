@@ -25,7 +25,7 @@ var painter = {
         s = size;
     if(on) {
       ctx.lineWidth = 1;
-      ctx.strokeStyle = "black";
+      ctx.strokeStyle = "white";
       ctx.strokeRect(cx + 1, cy + 1, s - 1, s - 1);
     } else {
       ctx.clearRect(cx, cy, s + 1, s + 1);
