@@ -44,20 +44,38 @@
 
 <body>
     <div id="message">
-      <h1>Welcome to World clicks</h1>
+      <h1>Welcome to Pixify Clicks</h1>
 
-      <p>Right now we click for <span class="bolder" id="targetElement">World peace</span>!</p>
+      <!--p>Right now we click for <span class="bolder" id="targetElement">World peace</span>!</p-->
       <p>There are <span id="clickersElement" class="bolder">0</span> clickers.<br/>
-        Current speed (clicks per second): <span id="speedElement" class="bolder">0</span></p>
+        <div style="display: none;">Current speed (clicks per second): <span id="speedElement" class="bolder">0</span></div></p>
       <p class="bigger">Click count: <span id="clicksElement" class="bolder">0</span> clicks</p>
+      <div style="height: 241px; width: 321px" id="canvas_container">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="smallGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+              <path d="M 8 0 L 0 0 0 8" fill="none" stroke="gray" stroke-width="0.5"/>
+            </pattern>
+            <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+              <rect width="80" height="80" fill="url(#smallGrid)"/>
+              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="gray" stroke-width="1"/>
+            </pattern>
+          </defs>
+
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+
+        <canvas id="canvas" height="240px" width="320px"></canvas>
+      </div>
       <ul>
         <li>
-          <button
+          <a
+          id="color_holder"
           ontouchstart="app.touched(this)"
           onclick="app.clicked(this);"
           onContextMenu="debug('context menu'); return false;"
           unselectable="on"
-          onselectstart="return false;" value="Click here2">Click here</button>
+          onselectstart="return false;" value="nop">Change color</a>
         </li>
       </ul>
     </div>
@@ -65,8 +83,17 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="https://pixify-clicks.herokuapp.com/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/painter.js"></script>
+    <script type="text/javascript" src="js/256colors.js"></script>
     <script type="text/javascript">
+        painter.initialize('canvas');
         app.initialize();
+
+        var showBorder = true;
+        setInterval(function() {
+          showBorder = !showBorder;
+          app.refreshActiveCell(showBorder);
+        }, 500);
     </script>
 </body>
 

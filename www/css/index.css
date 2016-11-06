@@ -11,19 +11,19 @@ body {
 }
 
 a, button {
-  color: rgb(3,155,229);
+  color: rgb(0,0,0);
   user-select: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
+  cursor: pointer;
 }
 
 #message {
   max-width: 400px;
-  margin: 40px auto;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
   border-radius: 2px;
   background: white;
-  padding: 16px 24px;
+  padding: 12px 0;
 }
 
 #message h1 {
@@ -36,6 +36,7 @@ a, button {
 #message p {
   font-weight: 300;
   line-height: 150%;
+  padding-left: 10px;
 }
 
 #message ul {
@@ -47,7 +48,7 @@ a, button {
 
 #message li a, #message li button {
   display: inline-block;
-  padding: 20px 80px;
+  padding: 25px 20px;
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 500;
@@ -61,7 +62,16 @@ a, button {
 #message li a:active, #message li button:active {
   background: rgb(43,195,255);
 }
-
+#canvas_container {
+  position: relative;
+  border: 1px solid black;
+  margin: auto;
+}
+#canvas_container > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .bolder {
   font-weight: 700;
 }
